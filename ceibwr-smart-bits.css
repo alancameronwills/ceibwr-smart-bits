@@ -1,0 +1,234 @@
+img {
+  transition: all 1s ease-in-out;
+}
+
+.page-title {
+  border-radius: 10px !important;
+}
+
+.wp-block-gallery.has-nested-images figure.wp-block-image figcaption {
+  color: #fff;
+  font-size: max(max(2vh, 2vw), 18pt);
+  text-align: left;
+  font-family: var(--wp--preset--font-family--heading);
+}
+
+.wp-element-button:hover,
+.wp-block-button__link:hover {
+  background-color: var(--wp--preset--color--contrast) !important;
+  outline: 1pt solid black !important;
+  border: 1pt solid white !important;
+}
+
+.wp-block-navigation a {
+  text-decoration: none !important;
+}
+
+a:not(.wp-block-social-link-anchor) {
+  background-image: linear-gradient(#5a5a5a, #5a5a5a);
+  background-size: 0% 0.1em;
+  background-position-y: 100%;
+  background-position-x: 0%;
+  background-repeat: no-repeat;
+  transition: background-size 0.2s ease-in-out;
+}
+
+a:hover,
+a:focus,
+a:active {
+  background-size: 100% 0.1em;
+}
+
+/* Adjust menu top for WP admin */
+body.admin-bar>div>header {
+  top: var(--wp-admin--admin-bar--height);
+}
+
+body:not(.admin-bar)>div>header {
+  top: 0;
+}
+
+/* Re-appearing menu */
+
+header.wp-block-template-part {
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  transition: all 1s;
+  background-color: white;
+
+  &>:first-child {
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+    margin: 0 20px !important;
+
+    &>div {
+      margin: 0 !important;
+    }
+  }
+}
+
+.hide-header {
+  transform: translate(0, -100px);
+}
+
+figure>img {
+  max-height: 100vh;
+  max-width: 100vw;
+  object-fit: contain;
+}
+
+
+.is-style-masonry.is-layout-grid {
+  @media (min-width: 1602px) {
+
+    & {
+      display: block !important;
+      column-count: 4;
+      gap: 40px !important;
+    }
+
+    &>li {
+      display: inline-block;
+    }
+  }
+
+  @media (max-width:1601px) and (min-width:500px) {
+    & {
+      display: flex !important;
+      flex-flow: column wrap;
+      align-content: space-between;
+      /* Needs a fixed height, taller than the tallest column. */
+      height: 500vh;
+    }
+
+    &>li {
+      margin-bottom: 2%;
+    }
+
+    /* Force new columns */
+    ::before,
+    ::after {
+      content: "";
+      flex-basis: 100%;
+      width: 0;
+    }
+
+    @media (min-width: 800px) {
+      &>li {
+        width: 31%;
+      }
+
+      ::before,
+      ::after {
+        order: 2;
+      }
+
+      /* Re-order items into 3 columns*/
+      &>li:nth-child(3n+1) {
+        order: 1;
+      }
+
+      &>li:nth-child(3n+2) {
+        order: 2;
+      }
+
+      &>li:nth-child(3n) {
+        order: 3;
+      }
+
+    }
+
+    @media (max-width: 800px) {
+      &>li {
+        width: 47%;
+      }
+
+      ::before,
+      ::after {
+        order: 1;
+      }
+
+      /* Re-order items into 2 columns*/
+      &>li:nth-child(2n+1) {
+        order: 1;
+      }
+
+      &>li:nth-child(2n) {
+        order: 2;
+      }
+    }
+  }
+}
+
+.is-style-stonework.is-layout-grid  {
+  display: flex !important;
+  flex-flow: wrap;
+  justify-content: space-around;
+
+  img {
+    height: max(20vw, 200px) !important;
+    width: auto !important;
+  }
+
+  h4 {
+    font-size: max(1.5vw, 12pt);
+  }
+}
+
+
+/* Category displays in wrapped rows */
+
+body.category main>ul {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+body.blog main>ul {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+/* Highlight events in News list */
+
+body.blog .category-events {
+  border: 2px solid darkcyan;
+}
+
+body.blog .category-events::before {
+  content: 'Coming soon';
+  background-color: darkcyan;
+  color: white;
+  position: relative;
+  float: right;
+  margin-top: -2rem;
+  display: block;
+  z-index: 1;
+  padding: 0 6px;
+  border-radius: 6px 6px 0 0;
+}
+
+/* Fix mobile menu */
+
+ul.wp-block-navigation__submenu-container.wp-block-navigation-submenu {
+  padding-top: 0 !important;
+}
+
+ul.wp-block-navigation__container.has-text-color.has-primary-color.is-responsive.items-justified-space-between.alignfull.wp-block-navigation {
+  margin-left: 0 !important;
+}
+
+.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content .wp-block-navigation__container,
+.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content .wp-block-navigation__submenu-container {
+  gap: 0 0;
+}
+
+/* Modify CookieYes */
+.cky-btn-revisit-wrapper {
+  visibility: hidden;
+}
