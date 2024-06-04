@@ -2,7 +2,7 @@ function ceibwr_hideHeader() {
   setInterval(()=>{
     let st = window.scrollY;
     let show = hide = false;
-    if (window.oldscroll && st > window.oldscroll + 10) {
+    if (st < 30 || window.oldscroll && st > window.oldscroll + 10) {
        show = true;
     } else if (window.oldscroll) {if (st < window.oldscroll - 10) {
       hide = true;}
