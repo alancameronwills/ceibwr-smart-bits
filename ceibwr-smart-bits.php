@@ -1,8 +1,8 @@
 <?php
 /*
  * Plugin Name: Ceibwr Smart Bits
- * Description: Small formatting improvements to WP 2024 template.
- * Version: 1.1.7
+ * Description: Menu peeking for WP2024 template.
+ * Version: 1.1.8
  * Author: Alan Cameron Wills
  * Licence: GPLv2
  *
