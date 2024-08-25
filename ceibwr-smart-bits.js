@@ -2,9 +2,9 @@ function ceibwr_hideHeader() {
   setInterval(()=>{
     let st = window.scrollY;
     let show = hide = false;
-    if (st < 30 || window.oldscroll && st > window.oldscroll + 10) {
+    if (st < 30 || window.oldscroll && st < window.oldscroll - 10) {
        show = true;
-    } else if (window.oldscroll) {if (st < window.oldscroll - 10) {
+    } else if (window.oldscroll) {if (st > window.oldscroll + 10) {
       hide = true;}
     }
     if (show) {if (window.oldHeaderShowing) 
@@ -16,10 +16,10 @@ function ceibwr_hideHeader() {
     if (hide || show) {
        let head = document.querySelector("header.wp-block-template-part");
        if (head) {
-         if (hide) { head.classList.remove("hide-header"); }
-         else {head.classList.add("hide-header");}
+         if (hide) { head.classList.add("hide-header"); }
+         else {head.classList.remove("hide-header");}
+         window.oldHeaderShowing = !hide;
        }
-       window.oldHeaderShowing = show;
     }
     window.oldscroll = st;   
   },250);
