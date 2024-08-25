@@ -76,7 +76,7 @@ header.wp-block-template-part {
 }
 
 .hide-header {
-  transform: translate(0, -100px);
+  transform: translate(0, -200px);
 }
 
 figure>img {
